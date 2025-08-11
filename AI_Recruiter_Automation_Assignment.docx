@@ -1,1 +1,107 @@
-A comprehensive, multi-section Word document including executive summary, introduction, role analysis, requirements, architecture, API selection, workflows, implementation, scenarios, testing, compliance, deployment, limitations, references, and appendix with code samples. The content mirrors the structure and details provided in previous responses, formatted for Word, and is suitable for a 10+ page technical assignment deliverable.
+
+AI Recruiter Automation Assignment
+
+By Zelalem Tamrie
+Summary
+The aim of this project is to design and implement an AI-powered automation solution for the role of a Technical Recruiter in the context of a technology startup. By leveraging AI and free-tier cloud services, the solution streamlines candidate sourcing, outreach, and interview scheduling, maximizing efficiency and minimizing manual effort.
+Introduction and objective
+Recruiting is a repetitive, high-value function in any fast-growing tech company. Manual candidate search, outreach, and scheduling cost time and limit scalability. The objective is to automate these tasks using AI and readily available APIs, focusing on backend architecture and real automation rather than UI.
+Role and Industry Analysis
+Role: Technical Recruiter
+Key responsibilities:
+Sourcing candidates from job boards and professional networks, resumes
+Contacting and engaging potential candidates
+Scheduling and coordinating interviews
+Tracking candidate progress
+Workflow Breakdown
+Task
+Sub-Functionality
+Example
+Sourcing
+Parse skills set from candidate CV
+"Python, Backend, Berlin"
+Comparisons candidates skill with job description
+Gemini API
+Calculate score
+Github Jobs API
+Outreach
+Draft personalized emails
+Gemini API
+Send emails
+SendGrid API
+Scheduling
+Find open interview slots
+Google Calendar API
+Schedule interviews
+Google Calendar API
+Tracking
+Update candidate status
+Google Sheets/Firestore
+
+
+Prioritization
+Automate sourcing, screening and ranking, and scheduling first. Tracking can be added as an enhancement.
+
+Functional and Non-Functional Requirements
+ Functional Requirements
+Parse job descriptions and extract key requirements
+Compare candidates skill with the job description
+Draft personalized emails using AI
+Send outreach emails programmatically
+Schedule interviews via calendar APIs
+Automate recurring sourcing and outreach tasks
+Non-Functional Requirements
+Scalable and stateless backend
+Secure API key and credential management
+Minimal latency on user-triggered actions
+Operate strictly within free API quotas
+Fault tolerance and retry logic
+Solution Architecture
+High-Level System Diagram
+
+
+
+The system follows a modular backend architecture using FastAPI for API endpoints,
+PostgreSQL for persistent storage, and external APIs for AI and email functionalities.
+The architecture includes:
+- API Layer: FastAPI routes for resume uploads, job CRUD, and application tracking.
+- Service Layer: AI processing, matching, and email utilities.
+- Data Layer: SQLAlchemy ORM models mapped to PostgreSQL tables.
+- External Integrations: Google Gemini API for AI parsing/matching and SendGrid API
+for emails.
+Technology and API Selection
+ Gemini API (Google AI Studio)
+For parsing job descriptions, resume skill and experience parsing  and generating personalized outreach emails
+Free tier: 1,500 requests/day
+ SendGrid API
+For sending emails
+Free tier: 100 emails/day
+ Backend Framework
+FastAPI (Python) for API endpoints and orchestration
+Postgres database for data storage 
+ Workflow and System Design
+End-to-End Workflow
+Recruiter submits job description via API
+User uploads resume as pdf
+Backend system converts pdf to text
+Gemini API parses description and and resume 
+For each candidate and job description, Gemini compare and score candidate status
+Outreach engine sends emails via SendGrid
+Candidate responses are monitored (manual or automated webhook)
+ API Endpoint Design
+
+Database Schema & Models 
+Key tables
+-  JobDescription: Stores job title, description, and required skills.
+-  Resume: Stores parsed resume data and extracted skills.
+-  Application: Links resumes to job descriptions with match scores.
+ 
+ERD Overview
+
+Next Step
+Workflow automation
+Deployment
+Tracking 
+
+
+

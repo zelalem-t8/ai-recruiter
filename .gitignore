@@ -2,3 +2,7 @@ config.py
 .env
 __pycache__/
 /venv
+*.docx
+*.xlsx
+*.csv
+*.pdf
